@@ -13,6 +13,9 @@
       background: #1b1f23;
       color: #fff;
       padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
     }
     header .container {
       display: flex;
@@ -42,6 +45,11 @@
     nav a {
       color: #fff;
       text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #88c9f9;
     }
 
     .hero {
@@ -168,6 +176,8 @@
           <li><a href="#features">Features</a></li>
           <li><a href="#pricing">Pricing</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
         </ul>
       </nav>
     </div>
@@ -218,12 +228,34 @@
     </div>
   </section>
 
+  <section id="about">
+    <h2 class="section-title">About Us</h2>
+    <p style="text-align:center; max-width: 800px; margin: auto;">SmartBill is a leading billing software solution designed for small businesses, startups, and enterprises. With intuitive features, automation, and real-time tracking, we help companies save time and grow faster.</p>
+  </section>
+
+  <section id="faq">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div style="max-width:800px; margin:auto;">
+      <h4>Is there a free trial?</h4>
+      <p>Yes, we offer a 14-day free trial with access to all features.</p>
+      <h4>Can I cancel anytime?</h4>
+      <p>Absolutely. You can upgrade, downgrade, or cancel your plan anytime.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <p style="text-align:center;">Email: support@smartbill.com | Phone: +91 99999 99999</p>
+  </section>
+
   <footer class="footer">
     <div class="footer-grid">
       <div>
         <h4>Navigate</h4>
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </div>
       <div>
@@ -252,4 +284,3 @@
 
 </body>
 </html>
-
