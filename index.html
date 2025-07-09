@@ -8,31 +8,6 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', sans-serif; background: #f7f9fc; line-height: 1.6; }
-    .menu-toggle {
-  display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-  nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-    margin-top: 10px;
-  }
-  nav ul.active {
-    display: flex;
-  }
-}
-
 
     header {
       background: #1b1f23;
@@ -61,12 +36,48 @@
       width: 30px;
       height: 30px;
     }
+
+    /* Default: Hide nav menu (mobile-first approach) */
     nav ul {
-      display: flex;
+      display: none;
       list-style: none;
-      gap: 20px;
-      flex-wrap: wrap;
     }
+
+    /* Show nav when toggled (mobile) */
+    nav ul.active {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* Hamburger menu button (hidden by default) */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* Mobile styles (show hamburger, hide default nav) */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block; /* Show hamburger */
+      }
+    }
+
+    /* Desktop styles (show full nav, hide hamburger) */
+    @media (min-width: 769px) {
+      nav ul {
+        display: flex !important; /* Force show nav */
+        flex-direction: row;
+        gap: 20px;
+      }
+    }
+
     nav a {
       color: #fff;
       text-decoration: none;
@@ -163,53 +174,30 @@
       padding-top: 30px;
       font-size: 0.9rem;
     }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        padding-top: 10px;
-      }
-      header .container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .hero h2 {
-        font-size: 1.8rem;
-      }
-      .hero p {
-        font-size: 1rem;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-    }
   </style>
 </head>
 <body>
 
   <header>
-  <div class="container">
-    <div class="logo">
-      <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="SmartBill Logo">
-      SmartBill
+    <div class="container">
+      <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/891/891419.png" alt="SmartBill Logo">
+        SmartBill
+      </div>
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i> <!-- 3-bar hamburger icon -->
+      </button>
+      <nav>
+        <ul id="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
     </div>
-    <button class="menu-toggle" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </button>
-    <nav>
-      <ul id="nav-links">
-        <li><a href="#features">Features</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
 
   <section class="hero">
     <h2>Smart Billing Software for Your Business</h2>
@@ -311,12 +299,11 @@
   </footer>
 
   <script>
-  function toggleMenu() {
-    const nav = document.getElementById('nav-links');
-    nav.classList.toggle('active');
-  }
-</script>
-
+    function toggleMenu() {
+      const nav = document.getElementById('nav-links');
+      nav.classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>
